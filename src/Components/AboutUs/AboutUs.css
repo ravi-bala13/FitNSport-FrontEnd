@@ -1,0 +1,154 @@
+.about-us {
+  padding: 2rem;
+  background-color: #ffff;
+  /* border: 2px solid red; */
+}
+
+.what-we-do h2 {
+  font-size: 2.5rem;
+  font-weight: bold;
+  text-align: center;
+  margin-bottom: 1rem;
+  font-family: "Myfont1";
+}
+
+.what-we-do p {
+  font-family: "Myfont2";
+  text-align: center;
+  font-size: 1.5rem;
+  line-height: 1.6;
+  margin-bottom: 2rem;
+  color: #393940;
+}
+
+.choose-sport button {
+  display: block;
+  background-color: #8ee8c4;
+  color: #393940;
+  border: none;
+  padding: 1rem;
+  margin: 2px auto 5px;
+  border-radius: 8px;
+  cursor: pointer;
+  font-size: 1.25rem;
+  box-shadow: 2px 2px 6px rgba(0, 0, 0, 0.8);
+}
+
+.client-reviews {
+  margin: 20px;
+  /* Adjust for spacing around the section */
+}
+
+.client-reviews h3 {
+  text-align: left;
+  font-family: "Myfont1";
+  margin-bottom: 20px;
+}
+
+.review-nav-icon {
+  background-color: #8ee8c4;
+  border: none;
+  padding: 10px;
+  font-size: 24px;
+  cursor: pointer;
+  border-radius: 50%;
+  color: #393940;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  position: absolute;
+  top: 50%;
+  transform: translateY(-50%);
+  transition: background-color 0.3s;
+}
+
+.prev-icon {
+  left: 5px;
+  top: 1600px;
+}
+
+.next-icon {
+  right: 5px;
+  top: 1600px;
+}
+
+.review-nav-icon:hover {
+  background-color: #aded9e;
+}
+
+.reviews {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+  /* Four boxes per row */
+  gap: 10px;
+  /* Spacing between the grid items */
+  flex-grow: 1;
+}
+
+.review {
+  border: 1px solid #ccc;
+  /* Border for each review box */
+  border-radius: 8px;
+  padding: 15px;
+  background-color: #ffff;
+  /* Light background */
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  /* Align content to the left */
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.5);
+  /* Slight shadow for depth */
+}
+
+.review h4 {
+  font-size: 18px;
+  margin-bottom: 10px;
+  /* Spacing below the heading */
+  color: #393940;
+  font-family: "Myfont3";
+}
+
+.review p {
+  font-size: 14px;
+  color: #393940;
+  line-height: 1.4;
+  font-family: "Myfont3";
+}
+
+/* Styling for even-indexed review cards */
+.review-even {
+  background-color: #8ee8c4;
+
+  .stars {
+    font-size: 20px;
+    color: #ffff;
+    /* Gold color for star rating */
+    margin-bottom: 10px;
+    /* Spacing below stars */
+  }
+}
+
+/* Styling for odd-indexed review cards */
+.review-odd {
+  background-color: #ffff;
+  border: 2px solid #393940;
+
+  .stars {
+    font-size: 20px;
+    color: #8ee8c4;
+    /* Gold color for star rating */
+    margin-bottom: 10px;
+    /* Spacing below stars */
+  }
+}
+
+@media (max-width: 768px) {
+  .reviews {
+    flex-direction: column;
+    align-items: center;
+  }
+
+  .review {
+    width: 80%;
+  }
+}

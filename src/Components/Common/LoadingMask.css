@@ -1,0 +1,38 @@
+.loading-mask-overlay {
+    top: 0;
+    left: 0;
+    width: 100vw;
+    height: 100vh;
+    z-index: 1000;
+    position: absolute;
+    display: flex;
+    align-items: center;
+    background: var(--ash-2);
+
+    .loading-gif {
+        width: 80px;
+        height: 80px;
+        font-size: 16px;
+        position: relative;
+        animation: runner 2s infinite;
+    }
+}
+
+.show {
+    filter: blur(0px);
+    pointer-events: none;
+}
+
+.hide {
+    display: none;
+}
+
+@keyframes runner {
+    from {
+        left: 0px;
+    }
+
+    to {
+        left: calc(100% - 80px);
+    }
+}

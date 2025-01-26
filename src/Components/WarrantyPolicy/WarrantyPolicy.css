@@ -1,0 +1,83 @@
+.warranty-container {
+    display: flex;
+    justify-content: center;
+    align-items: flex-start;
+    padding: 10px;
+    background-image: url("https://i.ibb.co/ZVf7Rdm/logo-run.png");
+    background-size: fit;
+    background-position: center;
+    background-repeat: no-repeat;
+    min-height: 150vh;
+    margin-top: 60px;
+    position: relative;
+    counter-reset: section;
+}
+
+.warranty-box {
+    background-color: rgba(255, 255, 255, 0.8);
+    padding: 30px;
+    border-radius: 10px;
+    max-width: 95%;
+    text-align: justify;
+    box-shadow: 0 0 15px rgba(0, 0, 0, 0.2);
+    overflow-y: auto;
+    max-height: calc(150vh - 5px);
+}
+
+.warranty-container h1 {
+    text-align: center;
+    font-size: 24px;
+    margin-top: 10px;
+    margin-bottom: 10px;
+    font-family: 'MyFont2';
+    font-weight: bold;
+}
+
+.warranty-container h2 {
+    text-align: left;
+    font-size: 18px;
+    margin-top: 10px;
+    margin-bottom: 10px;
+    font-style: inherit;
+}
+
+.warranty-container h2::before {
+    counter-increment: section;
+    content: counter(section) ". ";
+    font-weight: bold;
+}
+
+.warranty-container h5 {
+    text-align: left;
+    margin-top: 10px;
+    margin-bottom: 10px;
+    font-style: italic;
+}
+
+.warranty-container ul, .warranty-container li {
+    font-size: 14px;
+    margin-top: 10px;
+    margin-bottom: 10px;
+}
+
+.warranty-container p {
+    text-align: justify;
+    font-size: 16px;
+    line-height: 1.6;
+}
+
+.warranty-container h1, 
+.warranty-container h2, 
+.warranty-container h4 {
+    text-transform: uppercase;
+    letter-spacing: 2px;
+}
+
+.warranty-container ul {
+    list-style-position: inside;
+    padding-left: 20px;
+}
+
+.warranty-container li {
+    margin-left: 10px;
+}

@@ -1,0 +1,170 @@
+.YourProfile {
+  max-width: 800px;
+  margin: 0 auto;
+  padding: 20px;
+  top: 150px;
+}
+
+.YourProfile h1 {
+  text-align: center;
+  margin-bottom: 20px;
+}
+
+.profile-form {
+  display: flex;
+  flex-direction: column;
+}
+
+.usericon {
+  display: flex;
+  flex-direction: row;
+  gap: 15px;
+}
+
+.user-profile-section {
+  display: flex;
+  align-items: center;
+  margin-bottom: 20px;
+}
+
+.profile-form .signin-image {
+  width: 100px;
+  height: 100px;
+  border-radius: 50%;
+  margin-right: 20px;
+}
+
+.profile-input {
+  padding: 10px;
+  margin-bottom: 10px;
+  border: 1px solid #aded9e;
+  border-radius: 5px;
+  width: 100%;
+}
+
+.profile-section {
+  margin-bottom: 20px;
+}
+
+.profile-bar {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  background-color: var(--green-1);
+  padding: 10px 15px;
+  border: 1px solid #aded9e;
+  border-radius: 5px;
+  cursor: pointer;
+  margin-bottom: 10px;
+  font-weight: bold;
+  font-size: 16px;
+}
+
+.profile-bar:hover {
+  background-color: var(--green-2);
+}
+
+.address-box {
+  border: 1px solid #aded9e;
+  border-radius: 5px;
+  padding: 10px;
+  margin-bottom: 20px;
+}
+
+.address-entry {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 10px;
+  border: 2px solid #aded9e;
+  border-radius: 5px;
+  padding: 10px;
+}
+
+.address-entry > * {
+  flex: 1 1 calc(50% - 10px);
+  min-width: 200px;
+}
+
+.profile-add-icon {
+  background-color: #aded9e;
+  color: white;
+  padding: 10px;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 5px;
+}
+
+.profile-add-icon:hover {
+  background-color: #aded9e;
+}
+
+.delete-icon {
+  cursor: pointer;
+  color: red;
+}
+
+.saved-addresses {
+  margin-top: 20px;
+ 
+}
+
+.saved-addresses p{
+  text-align: left;
+}
+
+button[type="submit"] {
+  background-color: #aded9e;
+  color: white;
+  padding: 10px 20px;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+  align-self: flex-start;
+}
+
+.checkbox-section {
+  margin: 20px 0;
+}
+
+.checkbox-section label {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+}
+
+/* Responsive Design */
+@media (max-width: 768px) {
+  .user-profile-section {
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
+  }
+
+  .profile-form .signin-image {
+    margin: 0 auto 10px;
+  }
+
+  .address-entry {
+    flex-direction: column;
+  }
+
+  .profile-add-icon,
+  .profile-input {
+    width: 100%;
+  }
+}
+
+@media (max-width: 480px) {
+  .YourProfile {
+    padding: 10px;
+  }
+
+  .profile-add-icon {
+    font-size: 14px;
+    padding: 8px;
+  }
+}

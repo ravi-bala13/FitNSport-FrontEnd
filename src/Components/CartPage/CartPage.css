@@ -1,0 +1,406 @@
+.cart-page {
+  padding: 20px;
+  margin-top: 100px;
+
+  h2 {
+    text-align: center;
+  }
+
+  .cart-header {
+    margin-bottom: 20px;
+
+    nav {
+      display: flex;
+      justify-content: space-around;
+      border-bottom: 2px solid #aded9e;
+      margin-bottom: 20px;
+
+      span {
+        padding: 10px 20px;
+        cursor: pointer;
+      }
+
+      span.active {
+        font-weight: bold;
+      }
+    }
+  }
+}
+
+.cart-content {
+  .product-box {
+    display: flex;
+    border: 1px solid #aded9e;
+    padding: 10px;
+    gap: 15px;
+    background-color: white;
+    transition: background-color 0.3s ease;
+  }
+  
+  .product-box:hover {
+    background-color: #f4fdfb;
+  }
+  
+  .product-selection {
+    display: flex;
+    align-items: center;
+  }
+  
+  .product-selection input[type="checkbox"] {
+    width: 20px;
+    height: 20px;
+    border: 2px solid #aded9e;
+    background-color: white;
+    cursor: pointer;
+    transition: background-color 0.3s ease, border 0.3s ease;
+  }
+  
+  .product-selection input[type="checkbox"]:checked {
+    background-color: #aded9e;
+    border-color: #8ee8c4;
+  }
+  
+  .product-selection input[type="checkbox"]:hover {
+    background-color: #aded9e;
+  }
+  
+  .product-image img {
+    width: 100px;
+  }
+  
+  .product-details {
+    flex-grow: 1;
+  }
+  
+  .product-details label {
+    display: block;
+    margin-bottom: 10px;
+  }
+  
+  .action-buttons {
+    display: flex;
+    gap: 10px;
+    margin-top: 10px;
+  }
+  
+  .remove-button,
+  .wishlist-button {
+    padding: 5px 10px;
+    cursor: pointer;
+    border: none;
+    background-color: #aded9e;
+    color: white;
+    font-size: 14px;
+  }
+  
+  .remove-button:hover,
+  .wishlist-button:hover {
+    opacity: 0.8;
+  }
+  
+  /* Style for Wishlist and Cart Actions */
+  .remove-button,
+  .wishlist-button {
+    background-color: #aded9e;
+  }
+  
+  .remove-button:hover,
+  .wishlist-button:hover {
+    opacity: 0.8;
+  }
+}
+
+
+.cart-content,
+.address-content,
+.payment-content,
+.order-summary {
+  border: 2px solid #aded9e;
+  background-color: white;
+  padding: 20px;
+  margin-bottom: 20px;
+}
+
+.cart-content h2,
+.address-content h2,
+.payment-content h2,
+.section-heading {
+  color: #aded9e;
+  margin-bottom: 20px;
+}
+
+.order-summary h3 {
+  color: #aded9e;
+  margin-bottom: 10px;
+}
+
+.order-summary p,
+.order-summary h4 {
+  margin: 5px 0;
+}
+
+.order-summary .apply-coupon-button {
+  display: block;
+  width: 20%;
+  padding: 10px;
+  background-color: var(--green-1);
+  color: var(--ash-1);
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+  font-size: 16px;
+  margin-left: 20px;
+  text-align: left;
+}
+
+.order-summary .apply-coupon-button:hover {
+  background-color: var(--green-2);
+}
+
+/* Buttons and actions */
+.action-buttons {
+  margin-top: 10px;
+}
+
+.remove-button,
+.wishlist-button {
+  padding: 5px 10px;
+  margin-right: 10px;
+  cursor: pointer;
+  border: none;
+  background-color: #aded9e;
+  color: white;
+  font-size: 14px;
+}
+
+.add-address-button {
+  padding: 10px 20px;
+  cursor: pointer;
+  border: none;
+  background-color: #aded9e;
+  color: white;
+  font-size: 16px;
+  margin-top: 20px;
+}
+
+.edit-button {
+  padding: 5px 10px;
+  margin-right: 10px;
+  cursor: pointer;
+  border: none;
+  background-color: #333;
+  color: white;
+  font-size: 14px;
+}
+
+.remove-button:hover,
+.wishlist-button:hover,
+.edit-button:hover,
+.add-address-button:hover {
+  opacity: 0.8;
+}
+
+/* Square Checkbox Style */
+input[type="checkbox"] {
+  width: 20px;
+  height: 20px;
+  border: 2px solid #aded9e;
+  /* Green border */
+  background-color: white;
+  cursor: pointer;
+  transition: background-color 0.3s ease, border 0.3s ease;
+}
+
+input[type="checkbox"]:checked {
+  background-color: #aded9e;
+  /* Background color when checked */
+  border-color: #8ee8c4;
+  /* Lighter green border when checked */
+}
+
+input[type="checkbox"]:hover {
+  background-color: #aded9e;
+  /* Light green background on hover */
+}
+
+/* Hover Effect on the Full Address Box when Checkbox is Selected */
+.address-item:hover {
+  background-color: #aded9e;
+  /* Set background color on hover for the entire box */
+}
+
+/* Apply background color when checkbox is checked */
+.address-item input[type="checkbox"]:checked+.address-details {
+  background-color: #aded9e;
+  /* Light green background on checked */
+  color: white;
+  /* White text color when checked */
+}
+
+/* Apply a hover effect for the unchecked address item */
+.address-item input[type="checkbox"]:not(:checked):hover+.address-details {
+  background-color: #f4fdfb;
+  /* Light hover effect for unchecked */
+}
+
+/* Ensure the address box has a background color on hover, even without checkbox selected */
+.address-item {
+  display: flex;
+  align-items: center;
+  padding: 10px;
+  border: 1px solid #dedede;
+  margin-bottom: 10px;
+  transition: background-color 0.3s ease;
+  /* Smooth transition */
+  cursor: pointer;
+  /* Make the item clickable */
+}
+
+/* Change the background color of the address item when hovered */
+.address-item:hover {
+  background-color: #aded9e;
+  /* Entire address box background color */
+}
+
+.address-details {
+  padding-left: 10px;
+  flex-grow: 1;
+  transition: background-color 0.3s ease;
+}
+
+/* When the checkbox is checked, change the address box style */
+.address-item input[type="checkbox"]:checked+.address-details {
+  background-color: #aded9e;
+  /* Set the background to the green color when checked */
+  color: white;
+  /* Set the text color to white when checked */
+}
+
+
+/* Style for address details */
+.address-item input[type="checkbox"]:checked+.address-details {
+  background-color: #aded9e;
+  /* Light green background on checked */
+  color: white;
+  /* White text color when checked */
+}
+
+.address-item input[type="checkbox"]:not(:checked):hover+.address-details {
+  background-color: #f4fdfb;
+  /* Light hover effect for unchecked */
+}
+
+.payment-content {
+  padding: 40px;
+}
+
+.payment-content span {
+  color: var(--ash-1);
+  text-transform: uppercase;
+  font-weight: bolder;
+}
+
+.payment-option {
+  border: 1px solid #aded9e;
+  padding: 10px;
+  margin-bottom: 10px;
+  cursor: pointer;
+  border-radius: 5px;
+  color: #fff;
+  box-shadow: (var(#393940), 0.4);
+}
+
+.payment-option label {
+  display: flex;
+  align-items: center;
+}
+
+.payment-option input[type="radio"] {
+  margin-right: 10px;
+}
+
+.upi-options {
+  margin-top: 10px;
+  padding-left: 20px;
+}
+
+.upi-option {
+  margin-bottom: 10px;
+}
+
+.upi-input {
+  display: block;
+  margin-top: 5px;
+  width: 100%;
+  padding: 8px;
+  border: 1px solid #ccc;
+  border-radius: 4px;
+}
+
+.card-inputs input {
+  display: block;
+  margin: 5px 0;
+  width: 100%;
+  padding: 8px;
+  border: 1px solid #ccc;
+  border-radius: 4px;
+}
+
+.payment-option.selected {
+  border-color: #007bff;
+  background-color: #e7f3ff;
+}
+
+.pay-now-button {
+  display: block;
+  width: 20%;
+  padding: 10px;
+  background-color: var(--green-1);
+  color: var(--ash-1);
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+  font-size: 16px;
+  margin-top: 20px;
+  text-align: center;
+}
+
+.pay-now-button:hover {
+  background-color: var(--green-2);
+}
+
+.place-order-button {
+  display: block;
+  width: 20%;
+  padding: 10px;
+  background-color: var(--green-1);
+  color: var(--ash-1);
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+  font-size: 16px;
+  margin-top: 20px;
+  text-align: center;
+}
+
+.place-order-button:hover {
+  background-color: var(--green-2);
+}
+
+.proceed-to-pay-button {
+  display: block;
+  width: 20%;
+  padding: 10px;
+  background-color: var(--green-1);
+  color: var(--ash-1);
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+  font-size: 16px;
+  margin-top: 20px;
+  text-align: center;
+}
+
+.proceed-to-pay-button:hover {
+  background-color: var(--green-2);
+}

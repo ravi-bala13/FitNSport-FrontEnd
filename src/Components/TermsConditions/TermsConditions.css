@@ -1,0 +1,72 @@
+.terms-container {
+    display: flex;
+    justify-content: center;
+    align-items: flex-start;
+    padding: 10px;
+    background-image: url("https://i.ibb.co/ZVf7Rdm/logo-run.png");
+    background-size: fit;
+    background-position: center;
+    background-repeat: no-repeat;
+    min-height: 150vh;
+    margin-top: 60px;
+    position: relative;
+    counter-reset: section;
+  }
+  
+  .terms-box {
+    background-color: rgba(255, 255, 255, 0.6);
+    padding: 30px;
+    border-radius: 10px;
+    max-width: 95%;
+    text-align: justify;
+    box-shadow: 0 0 15px rgba(0, 0, 0, 0.2);
+    overflow-y: auto;
+    max-height: calc(150vh - 5px);
+  }
+  
+  .terms-container h1 {
+    text-align: center;
+    font-size: 20px;
+    margin-top: 5px;
+    margin-bottom: 5px;
+    font-family: 'MyFont2';
+  }
+  
+  .terms-container h2 {
+    text-align: left;
+    font-size: 14px;
+    margin-top: 5px;
+    margin-bottom: 5px;
+    font-style: inherit;
+  }
+  
+  .terms-container h2::before {
+    counter-increment: section;
+    content: counter(section) ". ";
+  }
+  
+  .terms-container h5 {
+    text-align: left;
+    margin-top: 5px;
+    margin-bottom: 5px;
+    font-style: italic;
+  }
+  
+  .terms-container ul, .terms-container li {
+    font-size: 14px;
+    margin-top: 5px;
+    margin-bottom: 5px;
+  }
+  
+  .terms-container p {
+    text-align: justify;
+    font-size: 14px;
+    line-height: 1.5;
+  }
+  
+  .terms-container h1, 
+  .terms-container h2, 
+  .terms-container h4 {
+    text-transform: uppercase;
+  }
+  

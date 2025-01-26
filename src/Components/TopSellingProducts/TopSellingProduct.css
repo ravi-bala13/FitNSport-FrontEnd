@@ -1,0 +1,145 @@
+/* Top Selling Products section styles */
+.top-selling-container {
+    margin-top: 150px;
+    margin-bottom: 50px;
+    /* border: 2px solid red; */
+
+    .section-heading {
+        font-size: 24px;
+        margin: 10px 0px;
+        text-align: left;
+    }
+
+    .product-carousel-wrapper {
+        display: flex;
+        flex-direction: row;
+        align-items: center;
+        width: 100%;
+        /* position: relative; */
+
+        .nav-arrow {
+            cursor: pointer;
+            font-size: 30px;
+            color: #393940;
+        }
+
+        .top-product-grid {
+            display: flex;
+            flex-grow: 1;
+            gap: 20px;
+            overflow-x: auto;
+
+            .product-item {
+                border-radius: 8px;
+                overflow: hidden;
+                text-align: center;
+                position: relative;
+                width: 250px;
+                flex: 1;
+
+                .product-image-container {
+                    img {
+                        width: 100%;
+                    }
+
+                    .cart-icon {
+                        position: absolute;
+                        top: -45px;
+                        right: -40px;
+                        width: 150px;
+                        height: 150px;
+
+                        .cart-icon-image {
+                            width: 100%;
+                            height: 100%;
+                        }
+                    }
+                }
+
+
+                .product-details {
+                    padding: 10px;
+
+                    .product-name {
+                        font-size: 16px;
+                        margin: 5px 0;
+                    }
+
+                    .product-price {
+                        color: #333;
+                        font-weight: bold;
+                    }
+
+                    .rating {
+                        display: flex;
+                        align-items: center;
+                        gap: 3px;
+                    }
+
+                    .rating-value {
+                        font-size: 14px;
+                        color: #555;
+                    }
+                }
+            }
+
+
+            /* Even-indexed product items */
+            .odd-item {
+                background-color: #aded9e;
+                /* Background color for even items */
+
+                .star-icon {
+                    color: #fff;
+                    /* Base color for unfilled stars */
+                    align-items: center;
+                }
+
+                .star-icon.filled {
+                    color: #393940;
+                    /* Color for filled stars */
+                }
+
+                .star-icon.outlined {
+                    color: transparent;
+                    /* Makes unfilled stars visible with only the outline */
+                    stroke: #393940;
+                    /* Outline color for unfilled stars */
+                    stroke-width: 1px;
+                }
+
+            }
+
+            /* Odd-indexed product items */
+            .even-item {
+                border: 2px solid #393940;
+                /* Border color for odd items */
+                background-color: #ffffff;
+                /* Optional: a background to contrast the border */
+
+                .star-icon {
+                    color: #ddd;
+                    /* Base color for unfilled stars */
+                    font-size: 18px;
+                    margin-right: 2px;
+                }
+
+                .star-icon.filled {
+                    color: #aded9e;
+                    /* Color for filled stars */
+                }
+
+                .star-icon.outlined {
+                    color: transparent;
+                    /* Makes unfilled stars visible with only the outline */
+                    stroke: #aded9e;
+                    /* Outline color for unfilled stars */
+                    stroke-width: 1px;
+                }
+
+            }
+
+        }
+
+    }
+}

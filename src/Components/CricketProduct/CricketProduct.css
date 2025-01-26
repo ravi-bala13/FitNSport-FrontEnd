@@ -1,0 +1,133 @@
+.product-grid {
+  display: flex;
+  flex-direction: column;
+  text-align: center;
+  padding: 20px;
+  top: 300px;
+  padding-top: 100px;
+
+  h1 {
+    top: 100px;
+    margin-bottom: 20px;
+  }
+
+  .grid-container {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    grid-gap: 20px;
+    position: relative;
+    width: 75%;
+    margin: auto;
+    overflow: hidden;
+
+    .grid-item {
+      /* Applying initial opacity and positioning off-screen */
+      opacity: 0;
+      transform: translateX(-100%);
+      animation: slideIn 0.8s ease forwards;
+      /* Apply animation */
+
+      .product-card {
+        width: 250px;
+        height: 350px;
+        padding: 20px;
+        border-radius: 8px;
+        text-align: center;
+
+        /* Loading mask (gray box) */
+        .loading-mask {
+          width: 100%;
+          height: 100%;
+          background: #e0e0e0;
+          border-radius: 10px;
+          display: flex;
+          justify-content: center;
+          align-items: center;
+          position: absolute;
+          top: 0;
+          left: 0;
+
+          /* Loading animation (Shimmer effect) */
+          .loading-bar {
+            width: 80%;
+            height: 10px;
+            background: linear-gradient(90deg, #f0f0f0 25%, #e0e0e0 50%, #f0f0f0 75%);
+            background-size: 200% 100%;
+            animation: shimmer 1.5s infinite;
+          }
+        }
+      }
+
+      .product-card:nth-child(odd) {
+        background-color: var(--green-1);
+        /* Color for odd items */
+      }
+
+      .product-card:nth-child(even) {
+        background-color: var(--green-2);
+        /* Color for even items */
+      }
+
+      .product-card img {
+        width: 100%;
+        height: auto;
+        max-height: 200px;
+        object-fit: contain;
+      }
+
+    }
+
+    .grid-item img {
+      max-width: 100%;
+      border-radius: 4px;
+    }
+  }
+
+  .pagination {
+    justify-content: center;
+    align-items: center;
+    margin-top: 20px;
+
+    .arrows {
+      display: flex;
+      justify-content: center;
+
+      .arrow {
+        font-size: 24px;
+        margin: 0 10px;
+        cursor: pointer;
+      }
+
+      .arrow[disabled] {
+        color: #ccc;
+        pointer-events: none;
+      }
+    }
+
+  }
+}
+
+
+
+
+
+
+/* Sliding Animation */
+@keyframes slideIn {
+  to {
+    opacity: 1;
+    transform: translateX(0);
+    /* Slide to original position */
+  }
+}
+
+/* Shimmer effect animation */
+@keyframes shimmer {
+  0% {
+    background-position: 200% 0;
+  }
+
+  100% {
+    background-position: -200% 0;
+  }
+}

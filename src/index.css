@@ -1,0 +1,114 @@
+@font-face {
+  font-family: 'MyFont1';
+  /* Sports World */
+  src: url('./Assets/fonts/Sports\ World-Regular.otf') format('opentype');
+  font-weight: bold;
+  /* Define the font weight */
+  font-style: normal;
+  /* Define the font style */
+}
+
+h1,
+h2,
+h3 {
+  font-family: 'MyFont1';
+}
+
+html {
+  scroll-behavior: smooth;
+  scroll-padding-top: 100px;
+}
+
+/* Now you can use the font in your CSS */
+body {
+  font-family: 'MyFont1', Poppins;
+  background-color: #303034;
+}
+
+
+
+@font-face {
+  font-family: 'MyFont2';
+  /* League Gothic  */
+  src: url('./Assets/fonts/LeagueGothic-Regular.ttf') format('woff1');
+  font-weight: bold;
+  /* Define the font weight */
+  font-style: normal;
+  /* Define the font style */
+}
+
+/* Now you can use the font in your CSS */
+body {
+  font-family: 'MyFont2', 'Myfont3';
+  /* Fallback to sans-serif */
+}
+
+h5,
+h4 {
+  font-family: 'MyFont2';
+  /* Apply to headings as well */
+}
+
+@font-face {
+  font-family: 'MyFont3';
+  /* Glacial Indifference Font */
+  src: url('./Assets/fonts/GlacialIndifference-Regular.otf') format('woff2');
+  font-weight: normal;
+  /* Define the font weight */
+  font-style: normal;
+  /* Define the font style */
+}
+
+h4,
+h5,
+h6 {
+  font-family: 'MyFont3';
+  /* Apply to headings as well */
+}
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font-family: 'Myfont2';
+  font-weight: 12pt;
+}
+
+body {
+  background-color: #ffff;
+}
+
+a {
+  text-decoration: none;
+  color: inherit;
+  line-height: 1;
+  cursor: pointer;
+}
+
+.container {
+  padding-left: 10%;
+  padding-right: 10%;
+}
+
+.btn {
+  background: #303034;
+  color: #ADED9E;
+  padding: 14px 25px;
+  font-size: 16px;
+  border-radius: 30px;
+  cursor: pointer;
+  border: 0;
+  outline: 0;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.btn img {
+  width: 20px;
+  margin-left: 10px;
+}
+.img {
+  max-width: none;
+  max-height: none;
+}

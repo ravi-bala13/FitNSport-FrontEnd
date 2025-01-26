@@ -1,0 +1,43 @@
+.order-confirmation {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+    padding: 20px;
+    
+  .message-box {
+    background-color: #f0f0f0;
+    padding: 15px;
+    margin-top: 20px;
+    border-radius: 5px;
+    width: 80%;
+    max-width: 500px;
+    text-align: left;
+  }
+  
+  .continue-shopping {
+    margin-top: 20px;
+    padding: 10px 20px;
+    background-color: #4CAF50;
+    color: white;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+  }
+  
+  .continue-shopping:hover {
+    background-color: #45a049;
+  }
+  }
+  
+  .order-confirmation h2 {
+    color: #4CAF50;
+  }
+  
+  .order-confirmation p {
+    font-size: 1.2rem;
+    margin: 10px 0;
+  }
+  
+  

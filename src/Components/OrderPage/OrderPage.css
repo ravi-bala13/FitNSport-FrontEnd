@@ -1,0 +1,158 @@
+  .order-page {
+    padding-top: 100px;
+    padding-left: 60px;
+    padding-right: 60px;
+    padding-bottom: 120px;
+    background-color: white;
+
+    .order-title {
+      text-align: center;
+      font-size: 2rem;
+      margin-bottom: 20px;
+      color: black;
+    }
+
+    /* Order Tabs */
+    .order-tabs {
+      display: flex;
+      padding: 0 60px;
+      /* Padding left and right */
+      justify-content: space-between;
+      background-color: var(--green-1);
+      /* Green background for the tabs */
+      align-items: center;
+      /* Center the content vertically */
+      border-radius: 5px;
+      box-shadow: 0 4px 8px rgba(14, 0, 0, 0.3);
+
+     .tab {
+        background-color: transparent;
+        border-radius: 8px;
+        /* No border */
+        color: white;
+        font-size: 18px;
+        padding: 8px 16px;
+        margin-top: 5px;
+        margin-bottom: 5px;
+        cursor: pointer;
+        transition: background-color 0.3s ease;
+      }
+
+      .order-tabs .tab.center {
+        flex-grow: 1;
+        text-align: center;
+        /* Align text in the center */
+      }
+
+      .order-tabs .tab.active {
+        background-color: white;
+        color: var(--green-1);
+      }
+    }
+
+    /* Order Items */
+    .order-item {
+      background-color: white;
+      padding: 15px;
+      border-radius: 8px;
+      margin-top: 20px;
+      margin-bottom: 20px;
+      box-shadow: 0 4px 8px rgba(14, 0, 0, 0.3);
+
+      .order-status {
+        margin-bottom: 10px;
+        font-weight: bold;
+        font-size: 14px;
+      }
+
+      .order-header {
+        display: flex;
+        justify-content: space-between;
+        background-color: var(--green-1);
+        color: white;
+        padding: 10px 60px;
+        border-radius: 8px;
+        font-size: 16px;
+        margin-bottom: 10px;
+      }
+
+      .order-header div {
+        flex: 1;
+        text-align: center;
+      }
+
+      .order-details {
+        display: flex;
+        justify-content: flex-start;
+        align-items: flex-start;
+        margin-top: 15px;
+
+        .order-left {
+          display: flex;
+          flex-direction: column;
+          align-items: flex-start;
+          max-width: 30%;
+          margin-right: 20px;
+
+          .order-image-container {
+            width: 250px;
+            height: 250px;
+            background-color: var(--green-1);
+            display: flex;
+            justify-content: center;
+            /* Center the image horizontally */
+            align-items: center;
+            /* Center the image vertically */
+            border-radius: 8px;
+            padding: 10px;
+            box-sizing: border-box;
+
+            .itemimg {
+              width: 100%;
+              height: 100%;
+              object-fit: cover;
+              /* Ensure the image covers the container */
+              border-radius: 8px;
+              overflow: hidden;
+            }
+          }
+
+        }
+
+        .order-right {
+          display: flex;
+          align-items: center;
+          /* justify-content: center; */
+          flex: 1;
+
+          .item-description {
+            text-align: left;
+          }
+
+        }
+
+      }
+
+      .order-buttons {
+        margin-top: 15px;
+        text-align: center;
+
+        button {
+          background-color: var(--green-1);
+          color: white;
+          border: none;
+          padding: 10px 20px;
+          font-size: 16px;
+          margin: 0 10px;
+          border-radius: 5px;
+          cursor: pointer;
+        }
+
+        button:hover {
+          background-color: #45a049;
+        }
+      }
+
+    }
+
+  }

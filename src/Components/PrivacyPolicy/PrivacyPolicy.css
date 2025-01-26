@@ -1,0 +1,86 @@
+/* PrivacyPolicy.css */
+
+.privacy-policy-container {
+    display: flex;
+    justify-content: center;
+    align-items: flex-start;
+    padding: 10px;
+    background-image: url("https://i.ibb.co/ZVf7Rdm/logo-run.png");
+    background-size: fit;
+    background-position: center;
+    background-repeat: no-repeat;
+    min-height: 150vh;
+    margin-top: 60px;
+    position: relative;
+    counter-reset: section;
+  }
+  
+  .privacy-policy-box {
+    background-color: rgba(255, 255, 255, 0.8);
+    padding: 30px;
+    border-radius: 10px;
+    max-width: 95%;
+    text-align: justify;
+    box-shadow: 0 0 15px rgba(0, 0, 0, 0.2);
+    overflow-y: auto;
+    max-height: calc(150vh - 5px);
+  }
+  
+  .privacy-policy-container h1 {
+    text-align: center;
+    font-size: 24px;
+    margin-top: 10px;
+    margin-bottom: 10px;
+    font-family: 'MyFont2';
+    font-weight: bold;
+  }
+  
+  .privacy-policy-container h2 {
+    text-align: left;
+    font-size: 18px;
+    margin-top: 10px;
+    margin-bottom: 10px;
+    font-style: inherit;
+  }
+  
+  .privacy-policy-container h2::before {
+    counter-increment: section;
+    content: counter(section) ". ";
+    font-weight: bold;
+  }
+  
+  .privacy-policy-container h5 {
+    text-align: left;
+    margin-top: 10px;
+    margin-bottom: 10px;
+    font-style: italic;
+  }
+  
+  .privacy-policy-container ul, .privacy-policy-container li {
+    font-size: 14px;
+    margin-top: 10px;
+    margin-bottom: 10px;
+  }
+  
+  .privacy-policy-container p {
+    text-align: justify;
+    font-size: 16px;
+    line-height: 1.6;
+  }
+  
+  .privacy-policy-container h1,
+  .privacy-policy-container h2,
+  .privacy-policy-container h4 {
+    text-transform: uppercase;
+    letter-spacing: 2px;
+  }
+  
+  .privacy-policy-container ul {
+    list-style-position: inside;
+    padding-left: 20px;
+  }
+  
+  .privacy-policy-container li {
+    margin-left: 10px;
+  }
+  
