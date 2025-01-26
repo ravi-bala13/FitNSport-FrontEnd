@@ -1,6 +1,5 @@
 const AppHelper = (function () {
   const _getServerUrl = () => {
-    return "http://localhost:8080";
     return "https://fitnsportbackend.onrender.com";
   };
 
