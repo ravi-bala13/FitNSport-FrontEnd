@@ -21,7 +21,7 @@ const ProductsApiHelper = (function () {
       const response = await apiCaller("get", `/api/products/getCartItems`);
       if (response && response.message === "success") {
         let product = response.results.items;
-        return product;
+        return product ?? [];
       } else {
         console.log("response.message:", response);
       }
@@ -37,7 +37,7 @@ const ProductsApiHelper = (function () {
       const response = await apiCaller("get", "/api/products/getAllProducts");
       if (response && response.message === "success") {
         let products = response.results;
-        return products;
+        return products ?? [];
       } else {
         console.log("response.message:", response);
       }
@@ -87,7 +87,7 @@ const ProductsApiHelper = (function () {
       const response = await apiCaller("get", "/api/products/getWishListItems");
       if (response && response.message === "success") {
         let products = response.results.items;
-        return products;
+        return products ?? [];
       } else {
         console.log("response.message:", response);
       }
