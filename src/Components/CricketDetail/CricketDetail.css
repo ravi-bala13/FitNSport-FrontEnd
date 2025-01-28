@@ -1,7 +1,7 @@
 /* Product Detail Page */
 .product-detail-page {
-  background-color: black;
-  color: white;
+  background-color: white;
+  color: var(--ash-2);
   padding: 0px 50px;
   padding-top: 100px;
   z-index: 10;
@@ -10,13 +10,14 @@
   .product-header {
     display: flex;
     padding: 20px;
-    color: white;
+    color: var(--ash-2);
     gap: 50px;
 
     .product-image {
       width: 300px;
       height: auto;
       margin-right: 20px;
+      background-color: var(--green-1);
     }
 
     .product-info {
@@ -27,7 +28,7 @@
 
 
       p {
-        color: white;
+        color: var(--ash-2);
       }
 
       .product-controls {
@@ -110,7 +111,7 @@
 
   .product-description {
     p {
-      color: white;
+      color: var(--ash-2);
       margin: 10px 0px;
       line-height: 25px;
       margin-left: 15px;
@@ -125,7 +126,7 @@
     margin: 30px 0px;
 
     p {
-      color: white;
+      color: var(--ash-2);
       margin: 10px 0px;
       line-height: 25px;
       margin-left: 15px;
@@ -152,7 +153,7 @@
         padding: 10px;
         margin-bottom: 10px;
         border: 1px solid #ccc;
-        background-color: #fff;
+        background-color: var(--green-1);
         color: #333;
         transition: transform 0.3s ease;
 

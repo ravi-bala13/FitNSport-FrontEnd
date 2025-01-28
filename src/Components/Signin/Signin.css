@@ -7,7 +7,6 @@
     height: 100vh;
     background-color: #f0f4f8;
     padding: 0 1rem;
-    /* Added padding for responsiveness */
 }
 
 /* Form box styling */
@@ -97,23 +96,79 @@ form input {
     color: red;
 }
 
-
 /* Show password toggle */
 .toggle-password {
     display: inline-flex;
-    /* Align checkbox and label on the same line */
     justify-content: flex-start;
     color: #4caf50;
 }
 
 .toggle-password input[type="checkbox"] {
     margin-right: 5px;
-    /* Space between checkbox and label */
 }
 
 .toggle-password h4 {
     color: #555;
     font-size: 14px;
-    inline-size: none;
-    white-space: nowrap;
+}
+
+/* Responsive Design */
+
+/* For smaller screens (max-width 600px) */
+@media (max-width: 600px) {
+    .signin-container {
+        padding: 0 1rem; /* Ensures padding for small screens */
+    }
+
+    .signin {
+        padding: 1.5rem; /* Reduce padding for smaller screens */
+        width: 90%; /* Take up more width on small screens */
+        max-width: none; /* Allow the form to take more space */
+    }
+
+    form label {
+        font-size: 0.9rem; /* Smaller font size for labels */
+    }
+
+    form input {
+        padding: 0.5rem; /* Consistent input size */
+        font-size: 0.9rem; /* Smaller font size for input fields */
+    }
+
+    .signinbutton {
+        padding: 0.6rem; /* Slightly smaller button padding */
+        font-size: 0.9rem; /* Slightly smaller button font size */
+    }
+
+    .toggle-button {
+        font-size: 0.9rem; /* Smaller font for toggle button */
+    }
+
+    .toggle-password h4 {
+        font-size: 12px; /* Smaller text for password toggle label */
+    }
+}
+
+/* For medium screens (600px to 768px) */
+@media (max-width: 768px) {
+    .signin-container {
+        padding: 0 2rem; /* More padding for medium screens */
+    }
+
+    .signin {
+        padding: 1.5rem; /* Consistent padding for medium screens */
+        width: 80%; /* Form takes up 80% of the screen */
+    }
+}
+
+/* For large screens (larger than 768px) */
+@media (min-width: 768px) {
+    .signin-container {
+        padding: 0 3rem; /* Additional padding for larger screens */
+    }
+
+    .signin {
+        max-width: 400px; /* Keep max-width for larger screens */
+        width: 100%; /* Keep form full width up to max-width */
+    }
 }

@@ -1,5 +1,6 @@
-import React, { useState, useEffect } from "react";
+import React, { useState } from "react";
 import { useSpring, animated } from "@react-spring/web";
+import { useNavigate } from "react-router-dom"; // Import useNavigate
 import "./Hero.css";
 import TopSellingProduct from "../TopSellingProducts/TopSellingProduct";
 
@@ -7,64 +8,64 @@ import TopSellingProduct from "../TopSellingProducts/TopSellingProduct";
 const products = [
   {
     id: 1,
-    name: "Product 1",
-    price: "Rs.50",
+    name: "Proflex Cricket Bat",
+    price: "Rs.500/-",
     rating: 4.5,
     image: "https://i.ibb.co/kgQY3dT/bat-png.png",
   },
   {
     id: 2,
-    name: "Product 2",
-    price: "Rs.75",
+    name: "Lightweight Cricket Bat",
+    price: "Rs.750/-",
     rating: 4.6,
     image: "https://i.ibb.co/kgQY3dT/bat-png.png",
   },
   {
     id: 3,
-    name: "Product 3",
-    price: "Rs.60",
+    name: "Stitched Ball Bat",
+    price: "Rs.1000/-",
     rating: 4.3,
     image: "https://i.ibb.co/kgQY3dT/bat-png.png",
   },
   {
     id: 4,
-    name: "Product 4",
-    price: "Rs.50",
+    name: "Gully Kashmir Willow Scoop Bat",
+    price: "Rs.1500/-",
     rating: 4.5,
     image: "https://i.ibb.co/kgQY3dT/bat-png.png",
   },
   {
     id: 5,
-    name: "Product 5",
-    price: "Rs.75",
+    name: "Proflex Teen Bat",
+    price: "Rs.1750/-",
     rating: 4.6,
     image: "https://i.ibb.co/kgQY3dT/bat-png.png",
   },
   {
     id: 6,
-    name: "Product 6",
-    price: "Rs.60",
+    name: "Premium Kashmir Willow Bat",
+    price: "Rs.2000/-",
     rating: 4.3,
     image: "https://i.ibb.co/kgQY3dT/bat-png.png",
   },
   {
     id: 7,
-    name: "Product 7",
-    price: "Rs.50",
+    name: "Teen Stiched Ball Bat",
+    price: "Rs.2500/-",
     rating: 4.5,
     image: "https://i.ibb.co/kgQY3dT/bat-png.png",
   },
   {
     id: 8,
-    name: "Product 8",
-    price: "Rs.75",
+    name: "Premium Kashmiri Willow Short Handle Bat",
+    price: "Rs.3000/-",
     rating: 4.6,
     image: "https://i.ibb.co/kgQY3dT/bat-png.png",
   },
   {
     id: 9,
-    name: "Product 9",
-    price: "Rs.60",
+    name: "Gully Kashmir Willow Long Handle Bat",
+    price: "Rs.4000/-",
     rating: 4.3,
     image: "https://i.ibb.co/kgQY3dT/bat-png.png",
   },
@@ -72,9 +73,8 @@ const products = [
 
 function Hero() {
   const [currentIndex, setCurrentIndex] = useState(0);
-  const itemsPerPage = 3;
-  const [cart, setCart] = useState([]);
   const [showMessage, setShowMessage] = useState(false);
+  const navigate = useNavigate(); // Initialize useNavigate
 
   const zoomAnimation = useSpring({
     from: { transform: "scale(1)" },
@@ -82,6 +82,10 @@ function Hero() {
     config: { duration: 2000 },
     reset: true,
   });
+
+  const handleNavigate = () => {
+    navigate("/cricket"); // Navigate to CricketProduct page
+  };
 
   return (
     <div className="hero container" id="home">
@@ -112,7 +116,9 @@ function Hero() {
             </div>
           </div>
         </div>
-        <button className="cta-button">Get Your Gear Today</button>
+        <button className="cta-button" onClick={handleNavigate}>
+          Get Your Gear Today
+        </button>
       </div>
 
       <TopSellingProduct products={products} />

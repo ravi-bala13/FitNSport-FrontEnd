@@ -27,6 +27,7 @@ import WarrantyPolicy from "./Components/WarrantyPolicy/WarrantyPolicy";
 import PrivacyPolicy from "./Components/PrivacyPolicy/PrivacyPolicy";
 import FAQ from "./Components/FAQ/FAQ";
 import ContactUs from "./Components/ContactUs/ContactUs";
+import OrderConfirmationPage from "./Components/OrderConfirmationPage/OrderConfirmationPage";
 
 function App() {
   // eslint-disable-next-line
@@ -75,6 +76,7 @@ function App() {
             <Route path="/cricket" element={<CricketProduct />} />
             <Route path="/how-to-choose-sport" element={<HowToChooseSport />} />
             <Route path="/products/:productId" element={<CricketDetail />} />
+            <Route path="/orderconfirm" element={<OrderConfirmationPage />} />
 
             <Route path="/termsconditions" element={<TermsConditions />} />
             <Route path="/warranty" element={<WarrantyPolicy />} />

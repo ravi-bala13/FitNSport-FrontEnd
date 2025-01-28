@@ -27,7 +27,7 @@
 .footer-blogs p {
   font-size: 18px;
   font-weight: bold;
-  justify-content: center;
+  text-align: center;
 }
 
 /* Footer Links */
@@ -79,6 +79,52 @@
 
 .footer-icons a:hover {
   color: #4caf50;
+}
+.explore-more-btn {
+  background-color: var(--green-1);
+  border: none;
+  color: black;
+  padding: 10px;
+  cursor: pointer;
+  font-size: 16px;
+}
+
+.explore-more-btn:hover {
+  background-color: var(--green-2);
+}
+
+.blog-dropdown {
+  display: flex; /* Use Flexbox to display items horizontally */
+  gap: 15px; /* Space between links */
+  margin-top: 10px;
+  background-color: var(--green-1);
+  padding: 5px;
+  border-radius: 5px;
+  justify-content: center;
+}
+
+.blog-dropdown ul {
+  list-style-type: none;
+  padding: 0;
+  display: flex; /* Horizontal layout */
+  gap: 15px; /* Space between items */
+  align-items: center;
+}
+
+.blog-dropdown li {
+  margin: 5px 0;
+}
+
+.blog-dropdown a {
+  color: var(--ash-2);
+  text-decoration: underline;
+  text-decoration-color: var(--ash-2); /* Change to the color of your choice */
+  text-decoration-thickness: 2px;
+}
+
+.blog-dropdown a:hover {
+  color: var(--ash-1);
+  text-decoration-color: var(--ash-1);
 }
 
 /* Responsive Design */

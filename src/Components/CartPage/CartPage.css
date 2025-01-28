@@ -139,24 +139,32 @@
   margin: 5px 0;
 }
 
-.order-summary .apply-coupon-button {
-  display: block;
-  width: 20%;
-  padding: 10px;
-  background-color: var(--green-1);
-  color: var(--ash-1);
-  border: none;
-  border-radius: 5px;
-  cursor: pointer;
-  font-size: 16px;
-  margin-left: 20px;
-  text-align: left;
-}
+.order-summary {
+  .price-details {
+    display: flex;
+    flex-direction: column;
 
-.order-summary .apply-coupon-button:hover {
-  background-color: var(--green-2);
-}
+    div {
+      display: flex;
+      justify-content: space-between;
+      column-gap: 10px;
+      margin: 10px 0;
+    }
 
+    .applycoupon {
+      background-color: #97eab9;
+      border: none;
+      color: white;
+      padding: 10px 20px;
+      border-radius: 5px;
+      cursor: pointer;
+    }
+
+    .applycoupon:hover {
+      background-color: #76d9a2;
+    }
+  }
+}
 /* Buttons and actions */
 .action-buttons {
   margin-top: 10px;
@@ -388,7 +396,10 @@ input[type="checkbox"]:hover {
 }
 
 .proceed-to-pay-button {
-  display: block;
+  display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
   width: 20%;
   padding: 10px;
   background-color: var(--green-1);
