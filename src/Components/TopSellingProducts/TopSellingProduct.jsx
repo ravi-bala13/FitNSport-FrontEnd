@@ -13,7 +13,8 @@ import oddsubicon from "../../Assets/Images/cart icon 3.png";
 import ProductsApiHelper from "../../Scripts/ProductsApiHelper";
 import { useToast } from "../../Providers/ToastProvider";
 
-const TopSellingProduct = ({ products = [], heading }) => {
+const TopSellingProduct = ({ products = [], heading, callBack }) => {
+  console.log("callBack:", callBack);
   const [currentIndex, setCurrentIndex] = useState(0);
   const itemsPerPage = 3;
   const [cart, setCart] = useState([]);
@@ -53,6 +54,7 @@ const TopSellingProduct = ({ products = [], heading }) => {
   const handleAddToCart = async (product) => {
     showToast("Item added to cart!");
     ProductsApiHelper.handleAddToCart(product);
+    callBack();
   };
 
   return (

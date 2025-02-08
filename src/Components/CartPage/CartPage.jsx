@@ -9,10 +9,11 @@ import ProductsApiHelper from "../../Scripts/ProductsApiHelper";
 
 const CartPage = () => {
   const [reload, setReload] = useState(false);
+  console.log("reload:", reload);
   const [activeTab, setActiveTab] = useState("cart");
   const [cartItems, setcartItems] = useState([]);
+  const [topSellingProducts, setTopSellingProducts] = useState([]);
   const [currentProducts, setCurrentProducts] = useState([]); // Current products to display
-  const [cart, setCart] = useState([]); // Cart items
   const [currentIndex, setCurrentIndex] = useState(0); // Index for the current product in the carousel
   const [selectedOption, setSelectedOption] = useState("");
   const [selectedUPIOption, setSelectedUPIOption] = useState("");
@@ -25,6 +26,12 @@ const CartPage = () => {
       setcartItems(products);
     };
     getCartProducts();
+
+    const getTopSellingProducts = async () => {
+      let products = await ProductsApiHelper.getTopSellingProducts();
+      setTopSellingProducts(products);
+    };
+    getTopSellingProducts();
   }, [reload]);
 
   const handlePlaceOrder = () => {
@@ -95,75 +102,12 @@ const CartPage = () => {
     <div>
       <h1>Your Cart is Empty</h1>
       <Wishlist reload={reload} />
-      <TopSellingProduct products={products} heading={"TOP SELLING PRODUCTS"} />
+      <TopSellingProduct
+        products={topSellingProducts}
+        heading={"TOP SELLING PRODUCTS"}
+      />
     </div>
   );
-  // Sample products data
-  const [products] = useState([
-    {
-      id: 1,
-      productName: "Proflex Cricket Bat",
-      price: "Rs.500/-",
-      rating: 4.5,
-      imageUrl: "https://i.ibb.co/kgQY3dT/bat-png.png",
-    },
-    {
-      id: 2,
-      productName: "Lightweight Cricket Bat",
-      price: "Rs.750/-",
-      rating: 4.6,
-      imageUrl: "https://i.ibb.co/kgQY3dT/bat-png.png",
-    },
-    {
-      id: 3,
-      productName: "Stiched Ball Bat",
-      price: "Rs.1000",
-      rating: 4.3,
-      imageUrl: "https://i.ibb.co/kgQY3dT/bat-png.png",
-    },
-    {
-      id: 4,
-      productName: "Gully Kashmir Willow Scoop Bat",
-      price: "Rs.1500",
-      rating: 4.5,
-      imageUrl: "https://i.ibb.co/kgQY3dT/bat-png.png",
-    },
-    {
-      id: 5,
-      productName: "Proflex Teen Bat",
-      price: "Rs.1750/-",
-      rating: 4.6,
-      imageUrl: "https://i.ibb.co/kgQY3dT/bat-png.png",
-    },
-    {
-      id: 6,
-      productName: "Premium Kashmir Willow Bat",
-      price: "Rs.2000/-",
-      rating: 4.3,
-      imageUrl: "https://i.ibb.co/kgQY3dT/bat-png.png",
-    },
-    {
-      id: 7,
-      productName: "Teen Stiched Ball Bat",
-      price: "Rs.2500/-",
-      rating: 4.5,
-      imageUrl: "https://i.ibb.co/kgQY3dT/bat-png.png",
-    },
-    {
-      id: 8,
-      productName: "Premium Kashmiri Willow Short Handle Bat",
-      price: "Rs.3000/-",
-      rating: 4.6,
-      imageUrl: "https://i.ibb.co/kgQY3dT/bat-png.png",
-    },
-    {
-      id: 9,
-      productName: "Gully Kashmir Willow Long Handle Bat",
-      price: "Rs.4000/-",
-      rating: 4.3,
-      imageUrl: "https://i.ibb.co/kgQY3dT/bat-png.png",
-    },
-  ]);
 
   const handlePrevious = () => {
     setCurrentIndex((prevIndex) => Math.max(prevIndex - 1, 0)); // Prevent going below index 0
@@ -186,9 +130,14 @@ const CartPage = () => {
     );
   };
 
-  const handleMoveToWishlist = (product) => {
+  const handleMoveToWishlist = async (product) => {
     ProductsApiHelper.handleAddToWishList(product);
-    ProductsApiHelper.handleRemoveFromCart(product.id);
+    var justToWait = await ProductsApiHelper.handleRemoveFromCart(product.id);
+    setReload((prev) => !prev);
+  };
+
+  const handleRemoveFromCart = async (productId) => {
+    await ProductsApiHelper.handleRemoveFromCart(productId);
     setReload((prev) => !prev);
   };
 
@@ -228,10 +177,7 @@ const CartPage = () => {
                 />
               </div>
               <div className="product-image">
-                <img
-                  src="https://i.ibb.co/kgQY3dT/bat-png.png"
-                  alt={product.productName}
-                />
+                <img src={product.imageUrl} alt={product.productName} />
               </div>
               <div className="product-details">
                 <p>{product.productName}</p>
@@ -267,10 +213,7 @@ const CartPage = () => {
                 <div className="action-buttons">
                   <button
                     className="remove-button"
-                    onClick={() => {
-                      ProductsApiHelper.handleRemoveFromCart(product.id);
-                      setReload((prevState) => !prevState); //to get the lates cart items after update
-                    }}
+                    onClick={() => handleRemoveFromCart(product.id)}
                   >
                     Remove
                   </button>
@@ -525,7 +468,11 @@ const CartPage = () => {
           </button>
         </div>
       )}
-      <TopSellingProduct products={products} heading={"TOP SELLING PRODUCTS"} />
+      <TopSellingProduct
+        products={topSellingProducts}
+        heading={"TOP SELLING PRODUCTS"}
+        callBack={() => setReload((prev) => !prev)}
+      />
     </div>
   );
 };
