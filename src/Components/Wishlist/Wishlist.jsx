@@ -30,19 +30,7 @@ const StarRating = ({ rating }) => {
 };
 
 const Wishlist = ({ reload }) => {
-  const [wishlist, setWishlist] = useState([
-    { id: 1, name: 'Proflex bat', image: "https://i.ibb.co/kgQY3dT/bat-png.png", price: 'Rs.1000', rating: 4.5 },
-    { id: 2, name: 'Junior Cricket Bat', image: "https://i.ibb.co/kgQY3dT/bat-png.png", price: 'Rs.1000', rating: 5 },
-    { id: 3, name: 'Proflex bat', image: "https://i.ibb.co/kgQY3dT/bat-png.png", price: 'Rs.1000', rating: 3.5 },
-    { id: 4, name: 'Proflex bat', image: "https://i.ibb.co/kgQY3dT/bat-png.png", price: 'Rs.1000', rating: 4 },
-    {
-      id: 1,
-      productName: "Proflex bat",
-      imageUrl: "https://i.ibb.co/kgQY3dT/bat-png.png",
-      price: "Rs.1000",
-      rating: 4.5,
-    },
-  ]);
+  const [wishlist, setWishlist] = useState([]);
 
   useEffect(() => {
     const getWishListItems = async () => {

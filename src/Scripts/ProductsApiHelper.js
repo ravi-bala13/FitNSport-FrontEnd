@@ -32,6 +32,25 @@ const ProductsApiHelper = (function () {
     return [];
   };
 
+  const _getTopSellingProducts = async () => {
+    try {
+      const response = await apiCaller(
+        "get",
+        `/api/products/getTopSellingProducts`
+      );
+      if (response && response.message === "success") {
+        let product = response.results;
+        return product ?? [];
+      } else {
+        console.log("response.message:", response);
+      }
+    } catch (error) {
+      console.log("error:", error);
+    }
+
+    return [];
+  };
+
   const _getAllProducts = async () => {
     try {
       const response = await apiCaller("get", "/api/products/getAllProducts");
@@ -46,6 +65,23 @@ const ProductsApiHelper = (function () {
     }
 
     return [];
+  };
+
+  const _getProductDetails = async (productId) => {
+    try {
+      const response = await apiCaller(
+        "get",
+        `/api/products/getProductDetails/${productId}`
+      );
+      if (response && response.message === "success") {
+        let product = response.results;
+        return product;
+      } else {
+        console.log("response.message:", response);
+      }
+    } catch (error) {
+      console.log("error:", error);
+    }
   };
 
   const _handleAddToCart = async (product) => {
@@ -98,10 +134,32 @@ const ProductsApiHelper = (function () {
     return [];
   };
 
+  const _getRelatedProducts = async () => {
+    try {
+      const response = await apiCaller(
+        "get",
+        "/api/products/getRelatedProducts"
+      );
+      if (response && response.message === "success") {
+        let products = response.results;
+        return products ?? [];
+      } else {
+        console.log("response.message:", response);
+      }
+    } catch (error) {
+      console.log("error:", error);
+    }
+
+    return [];
+  };
+
   return {
     handleRemoveFromCart: _handleRemoveFromCart,
     getCartProducts: _getCartProducts,
+    getTopSellingProducts: _getTopSellingProducts,
     getAllProducts: _getAllProducts,
+    getProductDetails: _getProductDetails,
+    getRelatedProducts: _getRelatedProducts,
     handleAddToCart: _handleAddToCart,
     handleAddToWishList: _handleAddToWishList,
     getWishListProducts: _getWishListProducts,

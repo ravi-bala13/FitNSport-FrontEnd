@@ -7,14 +7,17 @@ import App from "./App";
 import reportWebVitals from "./reportWebVitals";
 import AppContainer from "./Scripts/AppContainer";
 import { BrowserRouter } from "react-router-dom";
+import { ToastProvider } from "./Providers/ToastProvider";
 
 const root = ReactDOM.createRoot(document.getElementById("root"));
 root.render(
   // <React.StrictMode>
   <BrowserRouter>
-    <AppContainer>
-      <App />
-    </AppContainer>
+    <ToastProvider>
+      <AppContainer>
+        <App />
+      </AppContainer>
+    </ToastProvider>
   </BrowserRouter>
   // </React.StrictMode>
 );

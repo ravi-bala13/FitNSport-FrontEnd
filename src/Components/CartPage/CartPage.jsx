@@ -85,83 +85,85 @@ const CartPage = () => {
     } else if (activeTab === "address" && addresses.length > 0) {
       setActiveTab("payment");
     } else {
-      alert("Please ensure you have at least one item in the cart or one address added.");
+      alert(
+        "Please ensure you have at least one item in the cart or one address added."
+      );
     }
   };
-   // Display message if the cart is empty
-   const renderCartEmptyMessage = () => (
+  // Display message if the cart is empty
+  const renderCartEmptyMessage = () => (
     <div>
       <h1>Your Cart is Empty</h1>
       <Wishlist reload={reload} />
-      <TopSellingProduct products={products} />
+      <TopSellingProduct products={products} heading={"TOP SELLING PRODUCTS"} />
     </div>
   );
   // Sample products data
   const [products] = useState([
-     {
-       id: 1,
-       name: "Proflex Cricket Bat",
-       price: "Rs.500/-",
-       rating: 4.5,
-       image: "https://i.ibb.co/kgQY3dT/bat-png.png",
-     },
-     {
-       id: 2,
-       name: "Lightweight Cricket Bat",
-       price: "Rs.750/-",
-       rating: 4.6,
-       image: "https://i.ibb.co/kgQY3dT/bat-png.png",
-     },
-     {
-       id: 3,
-       name: "Stiched Ball Bat",
-       price: "Rs.1000",
-       rating: 4.3,
-       image: "https://i.ibb.co/kgQY3dT/bat-png.png",
-     },
-     {
-       id: 4,
-       name: "Gully Kashmir Willow Scoop Bat",
-       price: "Rs.1500",
-       rating: 4.5,
-       image: "https://i.ibb.co/kgQY3dT/bat-png.png",
-     },
-     {
-       id: 5,
-       name: "Proflex Teen Bat",
-       price: "Rs.1750/-",
-       rating: 4.6,
-       image: "https://i.ibb.co/kgQY3dT/bat-png.png",
-     },
-     {
-       id: 6,
-       name: "Premium Kashmir Willow Bat",
-       price: "Rs.2000/-",
-       rating: 4.3,
-       image: "https://i.ibb.co/kgQY3dT/bat-png.png",
-     },
-     {
-       id: 7,
-       name: "Teen Stiched Ball Bat",
-       price: "Rs.2500/-",
-       rating: 4.5,
-       image: "https://i.ibb.co/kgQY3dT/bat-png.png",
-     },
-     {
-       id: 8,
-       name: "Premium Kashmiri Willow Short Handle Bat",
-       price: "Rs.3000/-",
-       rating: 4.6,
-       image: "https://i.ibb.co/kgQY3dT/bat-png.png",
-     },
-     {
-       id: 9,
-       name: "Gully Kashmir Willow Long Handle Bat",
-       price: "Rs.4000/-",
-       rating: 4.3,
-       image: "https://i.ibb.co/kgQY3dT/bat-png.png",
-     },
-   ]);
+    {
+      id: 1,
+      productName: "Proflex Cricket Bat",
+      price: "Rs.500/-",
+      rating: 4.5,
+      imageUrl: "https://i.ibb.co/kgQY3dT/bat-png.png",
+    },
+    {
+      id: 2,
+      productName: "Lightweight Cricket Bat",
+      price: "Rs.750/-",
+      rating: 4.6,
+      imageUrl: "https://i.ibb.co/kgQY3dT/bat-png.png",
+    },
+    {
+      id: 3,
+      productName: "Stiched Ball Bat",
+      price: "Rs.1000",
+      rating: 4.3,
+      imageUrl: "https://i.ibb.co/kgQY3dT/bat-png.png",
+    },
+    {
+      id: 4,
+      productName: "Gully Kashmir Willow Scoop Bat",
+      price: "Rs.1500",
+      rating: 4.5,
+      imageUrl: "https://i.ibb.co/kgQY3dT/bat-png.png",
+    },
+    {
+      id: 5,
+      productName: "Proflex Teen Bat",
+      price: "Rs.1750/-",
+      rating: 4.6,
+      imageUrl: "https://i.ibb.co/kgQY3dT/bat-png.png",
+    },
+    {
+      id: 6,
+      productName: "Premium Kashmir Willow Bat",
+      price: "Rs.2000/-",
+      rating: 4.3,
+      imageUrl: "https://i.ibb.co/kgQY3dT/bat-png.png",
+    },
+    {
+      id: 7,
+      productName: "Teen Stiched Ball Bat",
+      price: "Rs.2500/-",
+      rating: 4.5,
+      imageUrl: "https://i.ibb.co/kgQY3dT/bat-png.png",
+    },
+    {
+      id: 8,
+      productName: "Premium Kashmiri Willow Short Handle Bat",
+      price: "Rs.3000/-",
+      rating: 4.6,
+      imageUrl: "https://i.ibb.co/kgQY3dT/bat-png.png",
+    },
+    {
+      id: 9,
+      productName: "Gully Kashmir Willow Long Handle Bat",
+      price: "Rs.4000/-",
+      rating: 4.3,
+      imageUrl: "https://i.ibb.co/kgQY3dT/bat-png.png",
+    },
+  ]);
 
   const handlePrevious = () => {
     setCurrentIndex((prevIndex) => Math.max(prevIndex - 1, 0)); // Prevent going below index 0
@@ -433,7 +435,6 @@ const CartPage = () => {
 
   return (
     <div className="cart-page">
-
       {orderPlaced ? (
         <OrderConfirmationPage />
       ) : (
@@ -515,16 +516,16 @@ const CartPage = () => {
       {/* Place Order button only on the Payment tab */}
       {activeTab === "payment" && (
         <div>
-            <button
-              className="place-order-button"
-              onClick={handlePlaceOrder}
-              disabled={!selectedOption}
-            >
-              Place Order
-            </button>
+          <button
+            className="place-order-button"
+            onClick={handlePlaceOrder}
+            disabled={!selectedOption}
+          >
+            Place Order
+          </button>
         </div>
       )}
-      <TopSellingProduct products={products} />
+      <TopSellingProduct products={products} heading={"TOP SELLING PRODUCTS"} />
     </div>
   );
 };

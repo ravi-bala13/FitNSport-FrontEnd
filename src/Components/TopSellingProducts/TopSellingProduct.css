@@ -15,7 +15,6 @@
         flex-direction: row;
         align-items: center;
         width: 100%;
-        /* position: relative; */
 
         .nav-arrow {
             cursor: pointer;
@@ -42,23 +41,28 @@
                         width: 100%;
                     }
 
-                    .cart-icon {
+                    .add-to-cart-icon {
                         position: absolute;
                         top: -45px;
                         right: -40px;
                         width: 150px;
                         height: 150px;
 
-                        .cart-icon-image {
+                        .add-to-cart-icon-image {
                             width: 100%;
                             height: 100%;
+                            cursor: pointer;
                         }
                     }
                 }
 
 
                 .product-details {
+                    display: flex;
                     padding: 10px;
+                    flex-direction: column;
+                    align-items: center;
+                    justify-content: center;
 
                     .product-name {
                         font-size: 16px;
@@ -71,9 +75,28 @@
                     }
 
                     .rating {
+                        color: var(--ash-2);
                         display: flex;
                         align-items: center;
-                        gap: 3px;
+                        justify-content: center;
+
+                        .star-icon {
+                            color: #fff;
+                            align-items: center;
+                        }
+
+                        .star-icon.filled {
+                            color: var(--ash-2);
+                            /* Color for filled stars */
+                        }
+
+                        .star-icon.empty {
+                            color: #646468;
+                            /* Makes unfilled stars visible with only the outline */
+                            stroke: #393940;
+                            /* Outline color for unfilled stars */
+                            stroke-width: 1px;
+                        }
                     }
 
                     .rating-value {
@@ -87,7 +110,6 @@
             /* Even-indexed product items */
             .odd-item {
                 background-color: #aded9e;
-                /* Background color for even items */
 
                 .star-icon {
                     color: #fff;
@@ -113,7 +135,6 @@
             /* Odd-indexed product items */
             .even-item {
                 border: 2px solid #393940;
-                /* Border color for odd items */
                 background-color: #ffffff;
                 /* Optional: a background to contrast the border */
 

@@ -1,0 +1,19 @@
+.toast {
+    position: fixed;
+    bottom: 20px;
+    right: -300px;
+    /* Start off-screen */
+    background: #333;
+    color: white;
+    padding: 15px 20px;
+    border-radius: 5px;
+    transition: right 0.5s ease-in-out, opacity 0.5s ease-in-out;
+    opacity: 0;
+    z-index: 1000;
+}
+
+.toast.show {
+    right: 20px;
+    /* Slide in */
+    opacity: 1;
+}
