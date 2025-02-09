@@ -6,8 +6,10 @@
 
     .section-heading {
         font-size: 24px;
-        margin: 10px 0px;
-        text-align: left;
+        color: var(--ash-2);
+        display: flex;
+        justify-content: center;
+        padding: 5px;
     }
 
     .product-carousel-wrapper {

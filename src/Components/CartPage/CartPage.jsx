@@ -1,15 +1,16 @@
-import React, { useState, useEffect } from "react";
+import React, { useState, useEffect, useContext } from "react";
 import { useNavigate } from "react-router-dom";
-import "./CartPage.css"; // Ensure this file contains necessary styles
-import productimg from "../../Assets/Images/bat1.png";
+import "./CartPage.css";
 import TopSellingProduct from "../TopSellingProducts/TopSellingProduct";
 import Wishlist from "../Wishlist/Wishlist";
 import OrderConfirmationPage from "../OrderConfirmationPage/OrderConfirmationPage";
 import ProductsApiHelper from "../../Scripts/ProductsApiHelper";
+import { UserStatusContext } from "../../Scripts/AppContainer";
+import { v4 as uuidv4 } from "uuid";
 
 const CartPage = () => {
   const [reload, setReload] = useState(false);
-  console.log("reload:", reload);
+  const [isLoggedIn, setIsLoggedIn] = useContext(UserStatusContext);
   const [activeTab, setActiveTab] = useState("cart");
   const [cartItems, setcartItems] = useState([]);
   const [topSellingProducts, setTopSellingProducts] = useState([]);
@@ -20,9 +21,16 @@ const CartPage = () => {
   const [orderPlaced, setOrderPlaced] = useState(false); // To track order placement status
   const navigate = useNavigate();
 
+  const generateNumericUUID = () => Number(Date.now().toString().slice(0, -4)); // Remove last 3 digits
+  // For Guest user flow
+  const sessionId = isLoggedIn
+    ? 0
+    : localStorage.getItem("guest_session_id") || generateNumericUUID();
+  localStorage.setItem("guest_session_id", sessionId);
+
   useEffect(() => {
     const getCartProducts = async () => {
-      let products = await ProductsApiHelper.getCartProducts();
+      let products = await ProductsApiHelper.getCartProducts(sessionId);
       setcartItems(products);
     };
     getCartProducts();
@@ -101,7 +109,7 @@ const CartPage = () => {
   const renderCartEmptyMessage = () => (
     <div>
       <h1>Your Cart is Empty</h1>
-      <Wishlist reload={reload} />
+      <Wishlist reload={reload} sessionId={sessionId} />
       <TopSellingProduct
         products={topSellingProducts}
         heading={"TOP SELLING PRODUCTS"}
@@ -132,32 +140,52 @@ const CartPage = () => {
 
   const handleMoveToWishlist = async (product) => {
     ProductsApiHelper.handleAddToWishList(product);
-    var justToWait = await ProductsApiHelper.handleRemoveFromCart(product.id);
+    var justToWait = await ProductsApiHelper.handleRemoveFromCart(
+      product.id,
+      sessionId
+    );
     setReload((prev) => !prev);
   };
 
   const handleRemoveFromCart = async (productId) => {
-    await ProductsApiHelper.handleRemoveFromCart(productId);
+    await ProductsApiHelper.handleRemoveFromCart(productId, sessionId);
     setReload((prev) => !prev);
   };
 
   // Function to update the quantity in state
   const handleQuantityChange = (id, newQuantity) => {
     setcartItems((prevProducts) =>
-      prevProducts.map((product) => {
+      prevProducts.map(async (product) => {
         if (product.id === id) {
-          let difference = newQuantity - product.quantity;
-          if (product.quantity < newQuantity) {
-            // ProductsApiHelper.handleAddToCart(product);
-          } else if (product.quantity > newQuantity) {
-            // ProductsApiHelper.handleRemoveFromCart(product.id);
+          let toUpdateProduct = { ...product, quantity: newQuantity };
+          if (isLoggedIn) {
+            await ProductsApiHelper.handleAddToCart(
+              toUpdateProduct,
+              true,
+              sessionId
+            );
+          } else {
+            await ProductsApiHelper.handleAddToCart(
+              toUpdateProduct,
+              true,
+              sessionId
+            );
           }
-          return { ...product, quantity: newQuantity };
+          setReload((prev) => !prev);
+          return toUpdateProduct;
         } else {
           return product;
         }
       })
     );
+  };
+
+  const getTotalPrice = () => {
+    return cartItems.reduce((total, item) => total + item.price, 0);
+  };
+
+  const getFinalPrice = () => {
+    return getTotalPrice() - (getTotalPrice() * 10) / 100 + 50;
   };
 
   const renderTabContent = () => {
@@ -413,11 +441,13 @@ const CartPage = () => {
         <div className="price-details">
           <div>
             <p>Total MRP :</p>
-            <p>Rs. 1000/-</p>
+            <p>{`Rs. ${getTotalPrice()}/-`}</p>
           </div>
           <div>
-            <p>Discount on MRP :</p>
-            <p>Rs. 100/-</p>
+            <p>{`Discount on MRP : ${
+              isLoggedIn ? "5% off" : "5% off (signin to get 25% off)"
+            }`}</p>
+            <p>{`Rs. ${(getTotalPrice() * 10) / 100}/-`}</p>
           </div>
           <div>
             <p>Coupon Discount :</p>
@@ -431,7 +461,7 @@ const CartPage = () => {
           </div>
           <div>
             <p>Order Total :</p>
-            <p>Rs. 950/-</p>
+            <p>{`Rs. ${getFinalPrice()}/-`}</p>
           </div>
         </div>
       </div>
@@ -443,7 +473,7 @@ const CartPage = () => {
           >
             PROCEED TO PAY
           </button>
-          <Wishlist reload={reload} />
+          <Wishlist reload={reload} sessionId={sessionId} />
         </div>
       )}
       {activeTab === "address" && (

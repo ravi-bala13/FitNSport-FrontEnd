@@ -9,117 +9,6 @@ import Toast from "../../CommonComponents/Toast/Toast";
 import { useToast } from "../../Providers/ToastProvider";
 
 const CricketBatDetails = () => {
-  const allProducts = [
-    {
-      id: 1,
-      productName: "Proflex Cricket Bat",
-      price: "Rs.500/-",
-      rating: 4.5,
-      imageUrl: "https://i.ibb.co/kgQY3dT/bat-png.png",
-      specifications: [],
-      preciseDescription:
-        "Lightweight Kashmir willow cricket bat designed for kids aged 4-5 years. Perfect for beginners to start their cricket journey with confidence and comfort.",
-      enhancedDescription:
-        "Ideal for young cricket enthusiasts aged 4-5 years and 4 ft - 4 ft 3 in tall, this Size 1 cricket bat is crafted from premium Kashmir willow for durability and precision. The lightweight design ensures effortless handling and control, making it the perfect choice for beginners. It features a comfortable grip, making it suitable for friendly games, practice sessions, or fun backyard cricket. Its compact size and sturdy build help budding players develop their batting skills while having fun. Buy now to give your little one the ultimate cricket experience!",
-    },
-    {
-      id: 2,
-      productName: "Lightweight Cricket Bat",
-      price: "Rs.750/-",
-      rating: 4.6,
-      imageUrl: "https://i.ibb.co/kgQY3dT/bat-png.png",
-      specifications: [],
-      preciseDescription:
-        "Lightweight Kashmir willow cricket bat designed for kids aged 4-5 years. Perfect for beginners to start their cricket journey with confidence and comfort.",
-      enhancedDescription:
-        "Ideal for young cricket enthusiasts aged 4-5 years and 4 ft - 4 ft 3 in tall, this Size 1 cricket bat is crafted from premium Kashmir willow for durability and precision. The lightweight design ensures effortless handling and control, making it the perfect choice for beginners. It features a comfortable grip, making it suitable for friendly games, practice sessions, or fun backyard cricket. Its compact size and sturdy build help budding players develop their batting skills while having fun. Buy now to give your little one the ultimate cricket experience!",
-    },
-    {
-      id: 3,
-      productName: "Stiched Ball Bat",
-      price: "Rs.1000",
-      rating: 4.3,
-      imageUrl: "https://i.ibb.co/kgQY3dT/bat-png.png",
-      specifications: [],
-      preciseDescription:
-        "Lightweight Kashmir willow cricket bat designed for kids aged 4-5 years. Perfect for beginners to start their cricket journey with confidence and comfort.",
-      enhancedDescription:
-        "Ideal for young cricket enthusiasts aged 4-5 years and 4 ft - 4 ft 3 in tall, this Size 1 cricket bat is crafted from premium Kashmir willow for durability and precision. The lightweight design ensures effortless handling and control, making it the perfect choice for beginners. It features a comfortable grip, making it suitable for friendly games, practice sessions, or fun backyard cricket. Its compact size and sturdy build help budding players develop their batting skills while having fun. Buy now to give your little one the ultimate cricket experience!",
-    },
-    {
-      id: 4,
-      productName: "Gully Kashmir Willow Scoop Bat",
-      price: "Rs.1500",
-      rating: 4.5,
-      imageUrl: "https://i.ibb.co/kgQY3dT/bat-png.png",
-      specifications: [],
-      preciseDescription:
-        "Lightweight Kashmir willow cricket bat designed for kids aged 4-5 years. Perfect for beginners to start their cricket journey with confidence and comfort.",
-      enhancedDescription:
-        "Ideal for young cricket enthusiasts aged 4-5 years and 4 ft - 4 ft 3 in tall, this Size 1 cricket bat is crafted from premium Kashmir willow for durability and precision. The lightweight design ensures effortless handling and control, making it the perfect choice for beginners. It features a comfortable grip, making it suitable for friendly games, practice sessions, or fun backyard cricket. Its compact size and sturdy build help budding players develop their batting skills while having fun. Buy now to give your little one the ultimate cricket experience!",
-    },
-    {
-      id: 5,
-      productName: "Proflex Teen Bat",
-      price: "Rs.1750/-",
-      rating: 4.6,
-      imageUrl: "https://i.ibb.co/kgQY3dT/bat-png.png",
-      specifications: [],
-      preciseDescription:
-        "Lightweight Kashmir willow cricket bat designed for kids aged 4-5 years. Perfect for beginners to start their cricket journey with confidence and comfort.",
-      enhancedDescription:
-        "Ideal for young cricket enthusiasts aged 4-5 years and 4 ft - 4 ft 3 in tall, this Size 1 cricket bat is crafted from premium Kashmir willow for durability and precision. The lightweight design ensures effortless handling and control, making it the perfect choice for beginners. It features a comfortable grip, making it suitable for friendly games, practice sessions, or fun backyard cricket. Its compact size and sturdy build help budding players develop their batting skills while having fun. Buy now to give your little one the ultimate cricket experience!",
-    },
-    {
-      id: 6,
-      productName: "Premium Kashmir Willow Bat",
-      price: "Rs.2000/-",
-      rating: 4.3,
-      imageUrl: "https://i.ibb.co/kgQY3dT/bat-png.png",
-      specifications: [],
-      preciseDescription:
-        "Lightweight Kashmir willow cricket bat designed for kids aged 4-5 years. Perfect for beginners to start their cricket journey with confidence and comfort.",
-      enhancedDescription:
-        "Ideal for young cricket enthusiasts aged 4-5 years and 4 ft - 4 ft 3 in tall, this Size 1 cricket bat is crafted from premium Kashmir willow for durability and precision. The lightweight design ensures effortless handling and control, making it the perfect choice for beginners. It features a comfortable grip, making it suitable for friendly games, practice sessions, or fun backyard cricket. Its compact size and sturdy build help budding players develop their batting skills while having fun. Buy now to give your little one the ultimate cricket experience!",
-    },
-    {
-      id: 7,
-      productName: "Teen Stiched Ball Bat",
-      price: "Rs.2500/-",
-      rating: 4.5,
-      imageUrl: "https://i.ibb.co/kgQY3dT/bat-png.png",
-      specifications: [],
-      preciseDescription:
-        "Lightweight Kashmir willow cricket bat designed for kids aged 4-5 years. Perfect for beginners to start their cricket journey with confidence and comfort.",
-      enhancedDescription:
-        "Ideal for young cricket enthusiasts aged 4-5 years and 4 ft - 4 ft 3 in tall, this Size 1 cricket bat is crafted from premium Kashmir willow for durability and precision. The lightweight design ensures effortless handling and control, making it the perfect choice for beginners. It features a comfortable grip, making it suitable for friendly games, practice sessions, or fun backyard cricket. Its compact size and sturdy build help budding players develop their batting skills while having fun. Buy now to give your little one the ultimate cricket experience!",
-    },
-    {
-      id: 8,
-      productName: "Premium Kashmiri Willow Short Handle Bat",
-      price: "Rs.3000/-",
-      rating: 4.6,
-      imageUrl: "https://i.ibb.co/kgQY3dT/bat-png.png",
-      specifications: [],
-      preciseDescription:
-        "Lightweight Kashmir willow cricket bat designed for kids aged 4-5 years. Perfect for beginners to start their cricket journey with confidence and comfort.",
-      enhancedDescription:
-        "Ideal for young cricket enthusiasts aged 4-5 years and 4 ft - 4 ft 3 in tall, this Size 1 cricket bat is crafted from premium Kashmir willow for durability and precision. The lightweight design ensures effortless handling and control, making it the perfect choice for beginners. It features a comfortable grip, making it suitable for friendly games, practice sessions, or fun backyard cricket. Its compact size and sturdy build help budding players develop their batting skills while having fun. Buy now to give your little one the ultimate cricket experience!",
-    },
-    {
-      id: 9,
-      productName: "Gully Kashmir Willow Long Handle Bat",
-      price: "Rs.4000/-",
-      rating: 4.3,
-      imageUrl: "https://i.ibb.co/kgQY3dT/bat-png.png",
-      specifications: [],
-      preciseDescription:
-        "Lightweight Kashmir willow cricket bat designed for kids aged 4-5 years. Perfect for beginners to start their cricket journey with confidence and comfort.",
-      enhancedDescription:
-        "Ideal for young cricket enthusiasts aged 4-5 years and 4 ft - 4 ft 3 in tall, this Size 1 cricket bat is crafted from premium Kashmir willow for durability and precision. The lightweight design ensures effortless handling and control, making it the perfect choice for beginners. It features a comfortable grip, making it suitable for friendly games, practice sessions, or fun backyard cricket. Its compact size and sturdy build help budding players develop their batting skills while having fun. Buy now to give your little one the ultimate cricket experience!",
-    },
-  ];
-
   const { productId } = useParams();
   const [product, setProduct] = useState({
     size: "SH",
@@ -150,7 +39,7 @@ const CricketBatDetails = () => {
     price: "Rs. 3000",
     imageUrl: "https://i.ibb.co/kgQY3dT/bat-png.png",
   });
-  // const product = allProducts[productId - 1];
+
   const [relatedProducts, setRelatedProducts] = useState([product]);
   const [loading, setLoading] = useState(true);
   const [error, setError] = useState(null);
@@ -242,8 +131,10 @@ const CricketBatDetails = () => {
               </button>
             </div>
             <div className="size-selector">
-              {productSizes.map((e) => (
-                <div className="product-sizes">{e}</div>
+              {productSizes.map((e, idx) => (
+                <div key={idx} className="product-sizes">
+                  {e}
+                </div>
               ))}
             </div>
 

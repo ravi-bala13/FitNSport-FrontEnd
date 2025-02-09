@@ -1,4 +1,4 @@
-import { useEffect, useState } from "react";
+import { useContext, useEffect, useState } from "react";
 import "./TopSellingProduct.css";
 import {
   FaArrowLeft,
@@ -12,14 +12,22 @@ import oddaddicon from "../../Assets/Images/cart icon 2.png";
 import oddsubicon from "../../Assets/Images/cart icon 3.png";
 import ProductsApiHelper from "../../Scripts/ProductsApiHelper";
 import { useToast } from "../../Providers/ToastProvider";
+import { Link } from "react-router-dom";
+import { v4 as uuidv4 } from "uuid";
+import { UserStatusContext } from "../../Scripts/AppContainer";
 
-const TopSellingProduct = ({ products = [], heading, callBack }) => {
-  console.log("callBack:", callBack);
+const TopSellingProduct = ({ products = [], heading, callBack = () => {} }) => {
   const [currentIndex, setCurrentIndex] = useState(0);
   const itemsPerPage = 3;
   const [cart, setCart] = useState([]);
   const [showMessage, setShowMessage] = useState(false);
   const { showToast } = useToast();
+  const [isLoggedIn, setIsLoggedIn] = useContext(UserStatusContext);
+  // For Guest user flow
+  const generateNumericUUID = () => Date.now().toString();
+  const sessionId =
+    localStorage.getItem("guest_session_id") || generateNumericUUID();
+  localStorage.setItem("guest_session_id", sessionId);
 
   useEffect(() => {
     const interval = setInterval(() => {
@@ -51,9 +59,15 @@ const TopSellingProduct = ({ products = [], heading, callBack }) => {
     }
   };
 
-  const handleAddToCart = async (product) => {
+  const handleAddToCart = async (event, product) => {
+    event.stopPropagation();
     showToast("Item added to cart!");
-    ProductsApiHelper.handleAddToCart(product);
+    if (isLoggedIn) {
+      await ProductsApiHelper.handleAddToCart(product);
+    } else {
+      await ProductsApiHelper.handleAddToCart(product, false, sessionId);
+    }
+
     callBack();
   };
 
@@ -68,17 +82,16 @@ const TopSellingProduct = ({ products = [], heading, callBack }) => {
         <div className="top-product-grid">
           {currentProducts.map((product, index) => (
             <div
-              key={product.id}
+              key={index}
               className={`product-item ${
                 index % 2 === 0 ? "even-item" : "odd-item"
               }`}
             >
               <div className="product-image-container">
-                <img src={product.imageUrl} alt={product.productName} />
-                <div
-                  className="add-to-cart-icon"
-                  onClick={() => handleAddToCart(product)}
-                >
+                <Link to={`/products/${product.id}`}>
+                  <img src={product.imageUrl} alt={product.productName} />
+                </Link>
+                <div className="add-to-cart-icon">
                   <img
                     src={
                       cart.includes(product.id)
@@ -91,6 +104,7 @@ const TopSellingProduct = ({ products = [], heading, callBack }) => {
                     }
                     alt="Cart Icon"
                     className="add-to-cart-icon-image"
+                    onClick={(event) => handleAddToCart(event, product)}
                   />
                 </div>
               </div>

@@ -29,12 +29,12 @@ const StarRating = ({ rating }) => {
   );
 };
 
-const Wishlist = ({ reload }) => {
+const Wishlist = ({ reload, sessionId = 0 }) => {
   const [wishlist, setWishlist] = useState([]);
 
   useEffect(() => {
     const getWishListItems = async () => {
-      let products = await ProductsApiHelper.getWishListProducts();
+      let products = await ProductsApiHelper.getWishListProducts(sessionId);
       setWishlist(products);
     };
     getWishListItems();

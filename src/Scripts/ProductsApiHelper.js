@@ -1,11 +1,11 @@
 import apiCaller from "./ApiCaller";
 
 const ProductsApiHelper = (function () {
-  const _handleRemoveFromCart = async (productId) => {
+  const _handleRemoveFromCart = async (productId, guestUserId = 0) => {
     try {
       const response = await apiCaller(
         "post",
-        `/api/products/removeFromCart/${productId}`
+        `/api/products/cart/removeFromCart/${productId}?guestUserId=${guestUserId}`
       );
       if (response && response.message === "success") {
       } else {
@@ -16,9 +16,12 @@ const ProductsApiHelper = (function () {
     }
   };
 
-  const _getCartProducts = async () => {
+  const _getCartProducts = async (guestUserId = 0) => {
     try {
-      const response = await apiCaller("get", `/api/products/getCartItems`);
+      const response = await apiCaller(
+        "get",
+        `/api/products/cart/getCartItems?guestUserId=${guestUserId}`
+      );
       if (response && response.message === "success") {
         let product = response.results.items;
         return product ?? [];
@@ -84,11 +87,32 @@ const ProductsApiHelper = (function () {
     }
   };
 
-  const _handleAddToCart = async (product) => {
+  const _handleAddToCart = async (
+    product,
+    isUpdateCart = false,
+    guestUserId = 0
+  ) => {
+    let apiEndPoint = `/api/products/cart/addToCart?isUpdateCart=${isUpdateCart}`;
+    if (guestUserId > 0) {
+      apiEndPoint = `/api/products/cart/addToCart?isUpdateCart=${isUpdateCart}&guestUserId=${guestUserId}`;
+    }
+    try {
+      const response = await apiCaller("post", apiEndPoint, product);
+      if (response && response.message === "success") {
+        console.log("response:", response);
+      } else {
+        console.log("response.message:", response);
+      }
+    } catch (error) {
+      console.log("error:", error);
+    }
+  };
+
+  const _handleAddToWishList = async (product, guestUserId = 0) => {
     try {
       const response = await apiCaller(
         "post",
-        `/api/products/addToCart`,
+        `/api/products/cart/addToWishList?guestUserId=${guestUserId}`,
         product
       );
       if (response && response.message === "success") {
@@ -101,26 +125,12 @@ const ProductsApiHelper = (function () {
     }
   };
 
-  const _handleAddToWishList = async (product) => {
+  const _getWishListProducts = async (guestUserId = 0) => {
     try {
       const response = await apiCaller(
-        "post",
-        `/api/products/addToWishList`,
-        product
+        "get",
+        `/api/products/cart/getWishListItems?guestUserId=${guestUserId}`
       );
-      if (response && response.message === "success") {
-        console.log("response:", response);
-      } else {
-        console.log("response.message:", response);
-      }
-    } catch (error) {
-      console.log("error:", error);
-    }
-  };
-
-  const _getWishListProducts = async () => {
-    try {
-      const response = await apiCaller("get", "/api/products/getWishListItems");
       if (response && response.message === "success") {
         let products = response.results.items;
         return products ?? [];

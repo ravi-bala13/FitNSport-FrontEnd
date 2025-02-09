@@ -83,6 +83,7 @@ function App() {
             <Route path="/privacy-policy" element={<PrivacyPolicy />} />
             <Route path="/faq" element={<FAQ />} />
             <Route path="/contactus" element={<ContactUs />} />
+            <Route path="/cart" element={<CartPage />} />
 
             {isLoggedIn ? (
               <>
@@ -90,7 +91,6 @@ function App() {
                 <Route path="/myorders" element={<OrderPage />} />
                 <Route path="/ordersummary" element={<OrderSummary />} />
                 <Route path="/mywishlist" element={<Wishlist />} />
-                <Route path="/cart" element={<CartPage />} />
               </>
             ) : (
               <Route path="/*" element={<Signin />} />

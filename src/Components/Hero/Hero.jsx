@@ -40,9 +40,6 @@ function Hero() {
 
   return (
     <div className="hero container" id="home">
-      {showMessage && (
-        <div className="cart-message">Added to cart successfully!</div>
-      )}
       {/* Centered Product Section */}
       <div className="centered-product-container">
         <div className="rotating-circle">
@@ -77,8 +74,10 @@ function Hero() {
           Get Your Gear Today
         </button>
       </div>
-
-      <TopSellingProduct products={topSellingProducts} />
+      <TopSellingProduct
+        products={topSellingProducts}
+        heading={"TOP SELLING PRODUCT"}
+      />
     </div>
   );
 }
